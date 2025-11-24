@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>မေတ္တာမွန် | Report</title>
+  <link rel="icon" type="image/jpg" href="img/logo.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+  <style>
+    /* =====================
+       1. RESET & BASE STYLES
+    ===================== */
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary-blue: #4c9aff; /* Main Blue Color */
+   --primary-blue-faint: #b0d2fd;;
+    --primary-blue-body: #DEEBFF;
+    --light-gray-bg: #F1F1F1;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --primary-font-color:#0065ff;
+}
+
+body {
+    background-color: var(--primary-blue-faint);
+    min-height: 100vh;
+    /* padding: 5px 0px; */
+}
+
+.dashboard-container {
+    padding: 0px;
+}
+  
+
+    /* =====================
+       2. NAVBAR
+    ===================== */
+   .main-header {
+    background-color: var(--primary-blue-faint);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    box-shadow: var(--card-shadow);
+    
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: -10px;
+}
+.logo h3{
+    font-size: 18px;
+    font-weight: 600;
+    color: #333333;
+    margin-top: 7px;
+    display: block;
+}
+
+.SLogo{
+    width: 50px;
+    height: 50px; 
+    border-radius: 50%; 
+    margin-right: 5px; 
+}
+
+/* Desktop Navigation (Hidden on Mobile by Default) */
+.desktop-nav {
+    display: none; 
+    flex-grow: 1;
+    margin-left: 0px;
+}
+
+.desktop-nav .nav-link {
+    color: #555;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 450;
+    padding: 5px 15px;
+    margin-right: 15px;
+    margin-bottom: 5px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.desktop-nav .nav-link.active {
+    color: var(--primary-font-color);
+    border-bottom: 3px solid var(--primary-font-color);
+}
+
+.user-info {
+    text-align: right;
+    line-height: 1.3;
+    margin-right: 20px;
+     margin-left: 14%;
+    /* Removed the fixed margin-left: 26% which breaks layout */
+}
+
+.user-greeting {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary-font-color);
+    display: block;
+}
+
+.nice-day {
+    font-size: 12px;
+    color: var(--primary-font-color);
+    display: block;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    display: block; 
+}
+
+/* Mobile Pop-up Navigation */
+.mobile-nav-menu {
+    display: none;
+    position: absolute;
+    top: 60px; 
+    right: 15px;
+    background-color: white;
+    box-shadow: var(--card-shadow);
+    border-radius: 8px;
+    z-index: 100;
+    padding: 10px;
+    flex-direction: column;    
+}
+
+.mobile-nav-menu.visible {
+    display: flex;
+}
+
+.mobile-nav-menu .nav-link {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+.mobile-nav-menu .nav-link.active {
+    color: var(--primary-font-color);
+    font-weight: 600;
+}
+.mobile-nav-menu .nav-link:last-child {
+    border-bottom: none;
+}
+
+    /* =====================
+       3. CONTENT & LAYOUT
+    ===================== */
+        .main-content {  
+          padding: 20px 15px; /* Mobile padding */
+    background-color: var(--primary-blue-body);
+    border-radius: 30px 30px 0px 0px; }
+
+    .title {
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #1f2937;
+    }
+
+    /* =====================
+       4. CHARTS LAYOUT
+    ===================== */
+    .charts-container {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+
+    .chart-left, .chart-right {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      padding: 20px;
+      flex: 1; 
+      min-width: 300px; 
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chart-left { flex: 1.5; } 
+
+    .chart-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .chart-header h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .chart-buttons {
+      display: flex;
+      gap: 5px;
+      background: var(--light-gray-bg);
+      padding: 4px;
+      border-radius: 8px;
+    }
+
+    .chart-btn {
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-weight: 500;
+      color: #666;
+      transition: 0.3s;
+    }
+
+    .chart-btn.active {
+      background: var(--primary-font-color);
+      color: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .chart-wrapper {
+      position: relative;
+      height: 300px;
+      width: 100%;
+    }
+
+    /* =====================
+       5. TABLE SECTION
+    ===================== */
+    .report-table {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .filter-row {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .search-input {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      width: 220px;
+    }
+
+    .filter-dropdown {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      background: white;
+      cursor: pointer;
+    }
+
+    .export-btn {
+      padding: 10px 20px;
+      background:var(--primary-blue);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+     .export-btn:hover {
+      background: #1a5c38;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin-top: 15px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 700px;
+      border-collapse: collapse;
+    }
+
+    th {
+      background: var(--primary-blue-faint);
+      padding: 12px;
+      border-bottom: 2px solid #eee;
+      text-align: left;
+      color: #555;
+     font-size: 14px;
+    }
+
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+      color: #333;
+
+    }
+
+    /* =====================
+       6. MOBILE RESPONSIVENESS
+    ===================== */
+    @media (max-width: 767px) {
+     
+     .title{
+      margin-left: 20px;
+     }
+    
+
+      .charts-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+      }
+
+      .chart-left, .chart-right {
+        width: 100% !important;
+        flex: none;
+        margin-bottom: 0;
+      }
+      
+      .filter-row {
+        justify-content: space-between;
+      }
+      .search-input { width: 100%; }
+    }
+
+    @media (min-width: 768px) {
+       .dashboard-container {
+        padding: 0px 0px;
+        /* max-width: 1200px; */
+        margin: 0px auto;
+        min-height: calc(100vh - 40px);
+    }
+    
+    /* Header/Nav Adjustments */
+    .main-header {
+        padding: 15px 20px;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    
+    .logo {
+    display: flex;
+    justify-content: space-between;
+    /* margin-right: 30%; */
+    margin-left: 20px;
+    /* margin-top: -3px; */
+    }
+   .logo h3{
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333333;
+    margin-top: 7px;
+    }
+
+    .SLogo{
+    width: 50px;
+    height: 50px; 
+    border-radius: 50%; 
+    margin-right: 5px; 
+   
+}
+    
+    .menu-toggle {
+        display: none; /* Hide hamburger menu */
+    }
+    
+    .desktop-nav {
+        display: flex; /* Show desktop navigation */
+        
+        margin-left: 25%;
+    }
+
+    .user-info {
+        margin-left: auto;
+    }
+
+    .main-content {
+        padding: 20px 60px;
+        border-radius: 40px;
+        box-shadow: 0px -2px 6px #7777771c;
+    }
+
+
+
+/* Tab Navigation */
+.tab-navigation {
+    padding: 5px;
+    margin-bottom: -5px;
+}
+
+.tab-button {
+    padding: 12px 5px;
+    font-size: 14px;
+}
+
+.tab-button.active {
+    padding: 12px 5px;
+}
+      }
+  
+  </style>
+</head>
+
+<body>
+
+ <div class="dashboard-container">
+   <header class="main-header">
+            <div class="logo">
+                <img class="SLogo" src="img/logo.jpg" alt="Software Logo">
+                <h3>မေတ္တာမွန်</h3>
+            </div>
+            
+            <nav class="desktop-nav">
+                <a href="../dashboard.html" class="nav-link ">Dashboard</a>
+                <a href="report.html" class="nav-link active">Report</a>
+                <a href="../form.html" class="nav-link">Forms</a>
+                <a href="setting.html" class="nav-link">Setting</a>
+            </nav>
+           
+
+            <div class="user-info">
+                <span class="user-greeting">Hi Johny</span>
+                <span class="nice-day">Have a nice day!</span>
+            </div>
+
+            <button id="hamburger" class="menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            
+        </header>
+        
+        <nav id="mobileNavMenu" class="mobile-nav-menu">
+            <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            <a href="report.html" class="nav-link active">Report</a>
+            <a href="../form.html" class="nav-link">Forms</a>
+            <a href="setting.html" class="nav-link ">Setting</a>
+        </nav>
+
+  <div class="main-content">
+    <h1 class="title">Sales Report</h1>
+    
+    <div class="charts-container">
+      
+      <div class="chart-left">
+        <div class="chart-header">
+          <h2>Sales Performance</h2>
+          <div class="chart-buttons">
+            <button id="btnDaily" class="chart-btn active" onclick="switchChart('daily')">Daily</button>
+            <button id="btnMonthly" class="chart-btn" onclick="switchChart('monthly')">Monthly</button>
+          </div>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="barChart"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-right">
+        <div class="chart-header">
+          <h2>Distribution</h2>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="donutChart"></canvas>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="report-table">
+      <h3>Sales Report Table</h3>
+      <div class="filter-row">
+        <input type="text" id="searchBox" placeholder="Search..." class="search-input">
+        <select id="reportType" class="filter-dropdown">
+          <option value="daily" selected>Daily</option>
+          <option value="monthly">Monthly</option>
+          <option value="yearly">Yearly</option>
+        </select>
+        <button id="exportExcel" class="export-btn">Export Excel</button>
+      </div>
+
+      <div class="table-container">
+        <table id="salesTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Seller</th>
+              <th>Shop/Cust</th>
+              <th>Date</th>
+              <th>Qty</th>
+              <th>Price (MMK)</th>
+              <th>Status</th>
+              <th>Remark</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+ </div>
+
+  <script>
+ // 1. Tab Switching Functionality
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tableContents = document.querySelectorAll('.table-content');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetTab = button.dataset.tab;
+
+            // Deactivate all buttons and content
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tableContents.forEach(content => content.classList.remove('active'));
+
+            // Activate the clicked button and its corresponding content
+            button.classList.add('active');
+            document.getElementById(targetTab).classList.add('active');
+        });
+    });
+
+
+    // 2. Mobile Navigation Toggle (Hamburger Menu)
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileNavMenu = document.getElementById('mobileNavMenu');
+
+    menuToggle.addEventListener('click', () => {
+        // Toggle the visibility class
+        mobileNavMenu.classList.toggle('visible');
+    });
+
+
+    // 3. Close mobile menu when a link is clicked or screen is resized
+    const navLinks = mobileNavMenu.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileNavMenu.classList.remove('visible');
+        });
+    });
+
+    // Close mobile menu on desktop/tablet view
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) {
+            mobileNavMenu.classList.remove('visible');
+        }
+    });
+
+    
+    // =====================
+    // 1. DATA
+    // =====================
+    const dailyData = [
+      { id: "P001", staff: "Aung", customer: "Shop 1", date: "2025-11-16", qty: 3, price: 15000, status: "Paid", remark:"", },
+      { id: "P002", staff: "Su",   customer: "Shop 2", date: "2025-11-16", qty: 1, price: 7000,  status: "Paid",remark:"", },
+      { id: "P003", staff: "Aung", customer: "Shop 3", date: "2025-11-16", qty: 3, price: 15000, status: "Paid",remark:"", },
+      { id: "P004", staff: "Kyaw", customer: "Shop 4",date: "2025-11-16", qty: 5, price: 25000, status: "Pending",remark:"", }
+    ];
+
+    const monthlyData = [
+      { id: "M001", staff: "Aung", customer: "Total", date: "2025-07", qty: 40, price: 200000, status: "", remark:"", },
+      { id: "M002", staff: "Su",   customer: "Total", date: "2025-07", qty: 25, price: 130000, status: "",remark:"", },
+      { id: "M003", staff: "Aung", customer: "Total", date: "2025-10", qty: 45, price: 220000, status: "",remark:"", },
+      { id: "M004", staff: "Su",   customer: "Total", date: "2025-10", qty: 30, price: 150000, status: "" ,remark:"",}
+    ];
+
+    const yearlyData = [
+      { id: "Y001", staff: "Aung", customer: "Annual", date: "2025", qty: 440, price: 2100000, status: "Audited", remark:"", },
+      { id: "Y002", staff: "Su",   customer: "Annual", date: "2025", qty: 390, price: 1900000, status: "Audited",remark:"", }
+    ];
+
+    let currentData = dailyData;
+
+    // =====================
+    // 2. CHART CONFIG
+    // =====================
+    Chart.defaults.font.family = "'Segoe UI', sans-serif";
+    Chart.defaults.color = '#64748B';
+    const colors = { primary: '#3b82f6', secondary: '#10b981', grid: '#e2e8f0' };
+
+    const barCtx = document.getElementById("barChart").getContext("2d");
+    const donutCtx = document.getElementById("donutChart").getContext("2d");
+    let barChart, donutChart;
+
+    // DRAW BAR
+    function drawBarChart(data, label) {
+      if (barChart) barChart.destroy();
+      barChart = new Chart(barCtx, {
+        type: "bar",
+        data: {
+          labels: data.map(d => d.staff),
+          datasets: [{
+            label: label,
+            data: data.map(d => d.price),
+            backgroundColor: colors.primary,
+            borderRadius: 6,
+            barPercentage: 0.5
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: {display:false}, tooltip: {backgroundColor: '#1e293b'} },
+          scales: {
+            y: { beginAtZero:true, grid: {color: colors.grid, borderDash:[5,5]}, border:{display:false} },
+            x: { grid: {display:false}, border:{display:false} }
+          }
+        }
+      });
+    }
+
+    // DRAW GROUPED (Monthly)
+    function drawMonthlyBar() {
+      const months = ["2025-07", "2025-10"];
+      const sellers = ["Aung", "Su"];
+      const ds = sellers.map((s, i) => ({
+        label: s,
+        data: months.map(m => {
+          const f = monthlyData.find(d => d.staff === s && d.date === m);
+          return f ? f.price : 0;
+        }),
+        backgroundColor: i===0 ? colors.primary : colors.secondary,
+        borderRadius: 4
+      }));
+
+      if (barChart) barChart.destroy();
+      barChart = new Chart(barCtx, {
+        type: "bar",
+        data: { labels: ["July", "October"], datasets: ds },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { tooltip: {backgroundColor: '#1e293b'} },
+          scales: {
+            y: { beginAtZero:true, grid: {color: colors.grid, borderDash:[5,5]}, border:{display:false} },
+            x: { grid: {display:false}, border:{display:false} }
+          }
+        }
+      });
+    }
+
+    // DRAW DONUT
+    function drawDonut() {
+      const staffMap = {};
+      dailyData.forEach(d => staffMap[d.staff] = (staffMap[d.staff]||0)+d.price);
+      
+      if (donutChart) donutChart.destroy();
+      donutChart = new Chart(donutCtx, {
+        type: "doughnut",
+        data: {
+          labels: Object.keys(staffMap),
+          datasets: [{
+            data: Object.values(staffMap),
+            backgroundColor: [colors.primary, colors.secondary, '#f59e0b'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '75%',
+          plugins: { legend: {position:'right'}, tooltip: {backgroundColor: '#1e293b'} }
+        }
+      });
+    }
+
+    // =====================
+    // 3. UI LOGIC
+    // =====================
+    
+    // Switch Report Mode
+    function switchChart(mode) {
+      document.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
+      if(mode === 'daily') {
+        document.getElementById('btnDaily').classList.add('active');
+        drawBarChart(dailyData, "Daily Sales");
+      } else {
+        document.getElementById('btnMonthly').classList.add('active');
+        drawMonthlyBar();
+      }
+    }
+
+    // Table Logic
+    function loadTable(data) {
+      const tbody = document.querySelector("#salesTable tbody");
+      tbody.innerHTML = "";
+      if(data.length === 0) {
+          tbody.innerHTML = "<tr><td colspan='8' style='text-align:center'>No data found</td></tr>";
+          return;
+      }
+      data.forEach(row => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${row.id}</td>
+          <td><strong>${row.staff}</strong></td>
+          <td>${row.customer}</td>
+          <td>${row.date}</td>
+          <td>${row.qty}</td>
+          <td>${row.price.toLocaleString()}</td>
+          <td>${row.status}</td>
+          <td>${row.remark}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Dropdown Event
+    document.getElementById("reportType").addEventListener("change", (e) => {
+      const val = e.target.value;
+      if(val === 'daily') currentData = dailyData;
+      if(val === 'monthly') currentData = monthlyData;
+      if(val === 'yearly') currentData = yearlyData;
+      document.getElementById("searchBox").value = ""; // Clear search
+      loadTable(currentData);
+    });
+
+   
+
+    // =====================
+    // 4. RESTORED FUNCTIONS
+    // =====================
+
+    // SEARCH FUNCTION
+    document.getElementById("searchBox").addEventListener("input", (e) => {
+      const query = e.target.value.toLowerCase();
+      const filtered = currentData.filter(row =>
+        Object.values(row).some(val => String(val).toLowerCase().includes(query))
+      );
+      loadTable(filtered);
+    });
+
+    // EXPORT EXCEL FUNCTION
+    document.getElementById("exportExcel").addEventListener("click", () => {
+      // 1. Convert JSON data to Sheet
+      const ws = XLSX.utils.json_to_sheet(currentData);
+      // 2. Create a new Book
+      const wb = XLSX.utils.book_new();
+      // 3. Append Sheet to Book
+      XLSX.utils.book_append_sheet(wb, ws, "Report");
+      // 4. Trigger Download
+      XLSX.writeFile(wb, "Sales_Report.xlsx");
+    });
+
+    // Init - This now runs because the script doesn't crash above!
+    loadTable(dailyData);
+    drawBarChart(dailyData, "Daily Sales");
+    drawDonut();
+
+  </script>
+</body>
+</html>

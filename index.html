@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>မေတ္တာမွန် | Login Form</title>
+    <link rel="icon" type="image/jpg" href="img/logo.jpg">
+    <link rel="stylesheet" href="loginStyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="blue-section">
+            <!-- <a href="#" class="back-arrow-desktop">&lt;</a> -->
+            <div class="blue-content">
+                <p class="can-read-text">YOU CAN EASILY</p>
+                <h1 class="speed-up-text">Speed up your work <br>with our Web App</h1>
+            </div>
+            <!-- <div class="partners">
+                <p>Our partners:</p>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div> -->
+        </div>
+
+        <div class="form-section">
+            
+            <div class="mobile-header">
+                <div class="logo-box">
+                    <span class="logo-placeholder"></span> 
+                </div>
+            </div>
+
+            <!-- <a href="#" class="back-arrow-mobile">&lt;</a>  -->
+
+            <div class="login-card">
+                <h2 class="form-title">Login</h2> <h2 class="form-title-desktop">Get Started Now</h2> <p class="subtitle-desktop">Please login to your account to continue</p>
+                
+                <form id="loginForm">
+                    <!-- <label class="desktop-only" for="name">Name</label>
+                    <input class="desktop-only" type="text" id="name" name="name" placeholder="Enter your name"> -->
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" >
+
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" >
+
+                    <div class="forgot-password-link">
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    
+                    <!-- <div class="terms-checkbox-desktop">
+                        <input type="checkbox" id="terms" name="terms">
+                        <label for="terms">I agree to the Terms & Privacy</label>
+                    </div> -->
+
+                    <button type="submit" class="login-button">Login</button>
+                    
+                    <!-- <div class="signup-link">
+                        <p class="mobile-signup">Don't have any account? <a href="#">Sign Up</a></p>
+                        <p class="desktop-signup">Have an account? <a href="#">Signup</a></p>
+                    </div>
+
+                    <div class="social-login-desktop">
+                        <div class="separator"><span>OR</span></div>
+                        <button type="button" class="social-button google-btn">
+                            <span class="icon">[G]</span> Login with Google
+                        </button>
+                        <button type="button" class="social-button apple-btn">
+                            <span class="icon">[]</span> Login with Apple
+                        </button>
+                    </div> -->
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="loginScript.js"></script>
+</body>
+</html>

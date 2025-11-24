@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>မေတ္တာမွန် | Setting</title>
+  <link rel="icon" type="image/jpg" href="img/logo.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+   <style>
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+    :root {
+    --primary-blue: #4c9aff; /* Main Blue Color */
+   --primary-blue-faint: #b0d2fd;;
+    --primary-blue-body: #DEEBFF;
+    --light-gray-bg: #F1F1F1;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --primary-font-color:#0065ff;
+}
+
+body {
+    background-color: var(--primary-blue-faint);
+    min-height: 100vh;
+    /* padding: 5px 0px; */
+}
+
+.dashboard-container {
+    padding: 0px;
+}
+  
+
+    /* =====================
+       2. NAVBAR
+    ===================== */
+   .main-header {
+    background-color: var(--primary-blue-faint);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    box-shadow: var(--card-shadow);
+    
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: -10px;
+}
+.logo h3{
+    font-size: 18px;
+    font-weight: 600;
+    color: #333333;
+    margin-top: 7px;
+    display: block;
+}
+
+.SLogo{
+    width: 50px;
+    height: 50px; 
+    border-radius: 50%; 
+    margin-right: 5px; 
+}
+
+/* Desktop Navigation (Hidden on Mobile by Default) */
+.desktop-nav {
+    display: none; 
+    flex-grow: 1;
+    margin-left: 0px;
+}
+
+.desktop-nav .nav-link {
+    color: #555;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 450;
+    padding: 5px 15px;
+    margin-right: 15px;
+    margin-bottom: 5px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.desktop-nav .nav-link.active {
+    color: var(--primary-font-color);
+    border-bottom: 3px solid var(--primary-font-color);
+}
+
+.user-info {
+    text-align: right;
+    line-height: 1.3;
+    margin-right: 20px;
+    margin-left: 14%;
+
+    /* Removed the fixed margin-left: 26% which breaks layout */
+}
+
+.user-greeting {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary-font-color);
+    display: block;
+}
+
+.nice-day {
+    font-size: 12px;
+    color: var(--primary-font-color);
+    display: block;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    display: block; 
+}
+
+/* Mobile Pop-up Navigation */
+.mobile-nav-menu {
+    display: none;
+    position: absolute;
+    top: 60px; 
+    right: 15px;
+    background-color: white;
+    box-shadow: var(--card-shadow);
+    border-radius: 8px;
+    z-index: 100;
+    padding: 10px;
+    flex-direction: column;
+    
+}
+
+.mobile-nav-menu.visible {
+    display: flex;
+}
+
+.mobile-nav-menu .nav-link {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+.mobile-nav-menu .nav-link.active {
+    color: var(--primary-font-color);
+    font-weight: 600;
+}
+.mobile-nav-menu .nav-link:last-child {
+    border-bottom: none;
+}
+
+    /* --- body NEW SEGMENTED TABS STYLE --- */
+
+    .main-content {
+    padding: 20px 15px; /* Mobile padding */
+    background-color: var(--primary-blue-body);
+    border-radius: 30px 30px 0px 0px;
+}
+    .tabs-container {
+      display: flex;
+      justify-content: center;
+      margin: 0px 20px 20px 20px ;
+
+    }
+
+    .tabs-segment {
+      display: flex;
+      background-color: var(--light-gray-bg);/* Grey background container */
+      padding: 5px;
+      border-radius: 30px; /* Pill shape */
+      gap: 5px;
+    }
+
+    .tab-btn {
+      padding: 10px 25px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 14px;
+      background: transparent; /* Default background is clear */
+      color: #555; /* Inactive text color */
+      border-radius: 25px; /* Round button edges */
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    /* ACTIVE STATE (The clicked button) */
+    .tab-btn.active {
+      background-color: var(--primary-blue); /*blue background for active */
+      color: white; 
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15); /* subtle shadow */
+    }
+
+    .tab-btn:hover:not(.active) {
+      background-color: rgba(255,255,255,0.5);
+    }
+
+
+
+    /* CONTENT */
+    .content { 
+      padding: 0; /* Mobile padding */
+    background-color: #fff;
+    border-radius: 20px;
+} 
+    .section-grid { display:flex; gap:18px; flex-wrap:wrap; align-items:stretch; }
+.profile-section, .form-container { 
+        background:white; 
+        padding:10px 20px; 
+        border-radius:8px; 
+        flex:1; 
+        min-width:280px; 
+    }
+    
+    /* --- NEW FIX: PROFILE WIDTH --- */
+    /* This centers the profile section and limits its width */
+    #profile-section {
+        justify-content: center;
+        background-color: var(--primary-blue-body);
+    }
+    
+    #profile-section .profile-section {
+        flex: 0 1 500px; /* Don't grow beyond 500px */
+        width: 100%;
+       
+    }    
+   
+    .title {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+    .list-container h2{
+      padding-top: 10px;
+      padding-left: 20px;
+      
+    }
+    /* FORM */
+    form label { display:block; margin-top:8px ;margin-bottom:0px; font-weight:500; font-size: 0.8rem;}
+    form input, form select { width:100%; padding:6px; margin-top:0px; border:1px solid #ddd; border-radius:6px; }
+    button { cursor:pointer; }
+    .form-actions { margin-top:15px; display:flex; gap:8px; }
+    .form-actions button { background: var(--primary-blue); color:white; border:none; padding:8px 12px; border-radius:6px; }
+
+    /* PHOTO */
+    .photo-upload { display:flex; justify-content:center; margin-bottom:8px; cursor:pointer; }
+    .photo-circle { position:relative; width:80px; height:80px; border-radius:50%; background:#f0f0f0; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+    .photo-circle img { width:100%; height:100%; object-fit:cover; display:none; }
+    .camera-icon { position:absolute; font-size:24px; color:#555; }
+
+    /* LIST */
+    .list-container { flex:1; min-width:280px; max-height:80vh; overflow-y:auto; border-left:1px solid #ddd;  display:flex; flex-direction:column; }
+    .list .item { display:flex; align-items:center; gap:10px; padding:8px 20px; border-bottom:1px solid #f0f0f0; }
+    .list .item img { width:48px; height:48px; object-fit:cover; border-radius:50%; border:2px solid #ddd; }
+    .item .meta { flex:1; }
+    .item .meta .name { font-weight:600;  }
+    .item .meta .sub { color:#666; font-size:0.8rem; margin-top:2px; }
+    .item .actions button { margin-left:6px; padding:6px 8px; border:none; cursor:pointer; border-radius:6px; background:#eee; }
+
+   
+    /* MOBILE SPECIFIC */
+    @media (max-width:768px) {
+      .tab-btn{
+        font-size: 9px;
+      }
+      .section-grid { flex-direction:column; }
+      .list-container { max-height:none; border:none; padding:0; }
+
+      /* Hide user info on small mobile screens if needed, otherwise flex takes care */
+    }
+
+    /* --- THE FIX: DESKTOP NAVIGATION --- */
+   @media (min-width: 768px) {
+    
+    .dashboard-container {
+        padding: 0px 0px;
+        /* max-width: 1200px; */
+        margin: 0px auto;
+        min-height: calc(100vh - 40px);
+    }
+    
+    /* Header/Nav Adjustments */
+    .main-header {
+        padding: 15px 20px;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    
+    .logo {
+    display: flex;
+    justify-content: space-between;
+    /* margin-right: 30%; */
+    margin-left: 20px;
+    /* margin-top: -3px; */
+    }
+   .logo h3{
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333333;
+    margin-top: 7px;
+    }
+
+    .SLogo{
+    width: 50px;
+    height: 50px; 
+    border-radius: 50%; 
+    margin-right: 5px; 
+}
+    
+    .menu-toggle {
+        display: none; /* Hide hamburger menu */
+    }
+    
+    .desktop-nav {
+        display: flex; /* Show desktop navigation */
+        
+        margin-left: 25%;
+    }
+
+    .user-info {
+        margin-left: auto;
+    }
+
+    .main-content {
+        padding: 20px 60px;
+        border-radius: 40px;
+        box-shadow: 0px -2px 6px #7777771c;
+    }
+
+
+
+/* Tab Navigation */
+.tab-navigation {
+    padding: 5px;
+    margin-bottom: -5px;
+}
+
+.tab-button {
+    padding: 12px 5px;
+    font-size: 14px;
+}
+
+.tab-button.active {
+    padding: 12px 5px;
+}
+
+
+   
+}
+   
+  </style>
+</head>
+<body>
+
+ <div class="dashboard-container">
+   <header class="main-header">
+            <div class="logo">
+                <img class="SLogo" src="img/logo.jpg" alt="Software Logo">
+                <h3>မေတ္တာမွန်</h3>
+            </div>
+            
+            <nav class="desktop-nav">
+                <a href="../dashboard.html" class="nav-link ">Dashboard</a>
+                <a href="report.html" class="nav-link">Report</a>
+                <a href="../form.html" class="nav-link">Forms</a>
+                <a href="setting.html" class="nav-link active">Setting</a>
+            </nav>
+           
+
+            <div class="user-info">
+                <span class="user-greeting">Hi Johny</span>
+                <span class="nice-day">Have a nice day!</span>
+            </div>
+
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            
+        </header>
+        
+        <nav id="mobileNavMenu" class="mobile-nav-menu">
+            <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            <a href="report.html" class="nav-link">Report</a>
+            <a href="../form.html" class="nav-link">Forms</a>
+            <a href="setting.html" class="nav-link active">Setting</a>
+        </nav>
+  <div class="main-content">
+    <div class="tabs-container ">
+    <div class="tabs-segment">
+      <button class="tab-btn active" data-target="profile-section">User Profile</button>
+      <button class="tab-btn" data-target="seller-section">Managing Accounts</button>
+      <button class="tab-btn" data-target="shop-section">Managing Shops</button>
+    </div>
+  </div>
+
+  <div class="content">
+
+   <div id="profile-section" class="section-grid profile">
+      <div class="profile-section">
+        <h2 class="title">User Profile</h2>
+        <div class="scroll-body">
+            <label class="photo-upload">
+            <input type="file" id="profilePhoto" hidden>
+            <div class="photo-circle">
+                <img id="profilePhotoPreview" alt="">
+                <span class="camera-icon"><i class="fas fa-camera"></i></span>
+            </div>
+            </label>
+            <form id="profileForm">
+            <label>Name:<input type="text" id="profileName" required></label>
+            <label>Email:<input type="email" id="profileGmail" required></label>
+            <label>Phone:<input type="tel" id="profilePhone" required></label>
+            <label>Role:
+                <select id="profileRole">
+                <option value="admin">Admin</option>
+                <option value="seller">Seller</option>
+                </select>
+            </label>
+            <label>Password:<input type="password" id="profilePassword" required></label>
+            <label>Confirm Password:<input type="password" id="profileConfirmPassword" required></label>
+            <div class="form-actions">
+                <button type="submit">Save Profile</button>
+                <button type="button" id="profileCancel">Cancel</button>
+            </div>
+            </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="seller-section" class="section-grid" style="display:none;">
+      <div class="form-container">
+        <h2 class="title">Create Seller</h2>
+        <div class="scroll-body">
+            <label class="photo-upload">
+            <input type="file" id="sellerPhoto" hidden>
+            <div class="photo-circle">
+                <img id="sellerPhotoPreview" alt="">
+                <span class="camera-icon"><i class="fas fa-camera"></i></span>
+            </div>
+            </label>
+            <form id="sellerForm">
+            <label>Name:<input type="text" id="sellerName" required></label>
+            <label>Email:<input type="email" id="sellerGmail" required></label>
+            <label>Phone:<input type="tel" id="sellerPhone" required></label>
+            <label>Role:
+                <select id="sellerRole">
+                <option value="admin">Admin</option>
+                <option value="seller">Seller</option>
+                </select>
+            </label>
+            <label>Password:<input type="password" id="sellerPassword" required></label>
+            <label>Confirm Password:<input type="password" id="sellerConfirmPassword" required></label>
+            <div class="form-actions">
+                <button type="submit" id="sellerSubmit">Create Seller</button>
+                <button type="button" id="sellerCancel">Cancel</button>
+            </div>
+            </form>
+        </div>
+      </div>
+      <div class="list-container">
+        <h2 class="title">Seller List</h2>
+        <div id="sellerList" class="list scrollable"></div>
+      </div>
+    </div>
+
+    <div id="shop-section" class="section-grid" style="display:none;">
+      <div class="form-container">
+        <h2 class="title">Create Shop</h2>
+        <div class="scroll-body">
+            <label class="photo-upload">
+            <input type="file" id="shopPhoto" hidden>
+            <div class="photo-circle">
+                <img id="shopPhotoPreview" alt="">
+                <span class="camera-icon"><i class="fas fa-camera"></i></span>
+            </div>
+            </label>
+            <form id="shopForm">
+            <label>Shop ID:<input type="text" id="shopId" required></label>
+            <label>Shop Name:<input type="text" id="shopName" required></label>
+            <label>Shop Phone number:<input type="text" id="shopPhone" required></label>
+            <label>Shop Address:<input type="text" id="shopAddress" required></label>
+            <div class="form-actions">
+                <button type="submit" id="shopSubmit">Upload Shop</button>
+                <button type="button" id="shopCancel">Cancel</button>
+            </div>
+            </form>
+        </div>
+      </div>
+      <div class="list-container">
+        <h2 class="title">Shop List</h2>
+        <div id="shopList" class="list scrollable"></div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+ </div>
+
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Tab Switching Functionality
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tableContents = document.querySelectorAll('.table-content');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetTab = button.dataset.tab;
+
+            // Deactivate all buttons and content
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tableContents.forEach(content => content.classList.remove('active'));
+
+            // Activate the clicked button and its corresponding content
+            button.classList.add('active');
+            document.getElementById(targetTab).classList.add('active');
+        });
+    });
+
+
+    // 2. Mobile Navigation Toggle (Hamburger Menu)
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileNavMenu = document.getElementById('mobileNavMenu');
+
+    menuToggle.addEventListener('click', () => {
+        // Toggle the visibility class
+        mobileNavMenu.classList.toggle('visible');
+    });
+
+
+    // 3. Close mobile menu when a link is clicked or screen is resized
+    const navLinks = mobileNavMenu.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileNavMenu.classList.remove('visible');
+        });
+    });
+
+    // Close mobile menu on desktop/tablet view
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) {
+            mobileNavMenu.classList.remove('visible');
+        }
+    });
+
+});
+
+    // TABS
+    const tabs = document.querySelectorAll(".tab-btn");
+    const sections = document.querySelectorAll("#profile-section, #seller-section, #shop-section");
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        const target = tab.dataset.target;
+        sections.forEach(sec => sec.style.display = sec.id === target ? "flex" : "none");
+      });
+    });
+
+    // IMAGE HELPER
+    function handleImageUpload(inputElement, previewElement, iconElement) {
+      inputElement.addEventListener("change", function() {
+        const file = this.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = e => {
+          previewElement.src = e.target.result;
+          previewElement.style.display = "block";
+          if (iconElement) iconElement.style.display = "none";
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    // ----------------- PROFILE -----------------
+    const profilePhotoInput = document.getElementById("profilePhoto");
+    const profilePhotoPreview = document.getElementById("profilePhotoPreview");
+    const profileCameraIcon = document.querySelector("#profile-section .camera-icon");
+    const profileForm = document.getElementById("profileForm");
+    const headerName = document.getElementById("headerName");
+    const headerPhoto = document.getElementById("headerPhoto");
+    const mobileUser = document.querySelector(".mobile-user.username");
+    const mobileUserImg = document.querySelector(".mobile-user.user-img");
+    const placeholderUser = "img/user.png";
+
+    handleImageUpload(profilePhotoInput, profilePhotoPreview, profileCameraIcon);
+
+    function loadProfile() {
+      const savedProfile = JSON.parse(localStorage.getItem("myProfile"));
+      if (savedProfile) {
+        document.getElementById("profileName").value = savedProfile.name || "";
+        document.getElementById("profileGmail").value = savedProfile.gmail || "";
+        document.getElementById("profilePhone").value = savedProfile.phone || "";
+        document.getElementById("profileRole").value = savedProfile.role || "admin";
+        document.getElementById("profilePassword").value = savedProfile.password || "";
+        document.getElementById("profileConfirmPassword").value = savedProfile.password || "";
+
+        if (savedProfile.photo && savedProfile.photo !== placeholderUser) {
+          profilePhotoPreview.src = savedProfile.photo;
+          profilePhotoPreview.style.display = "block";
+          profileCameraIcon.style.display = "none";
+        }
+        updateHeader(savedProfile.name, savedProfile.photo);
+      }
+    }
+
+    function updateHeader(name, photo) {
+      const safePhoto = photo || placeholderUser;
+      if (headerName) headerName.textContent = name;
+      if (headerPhoto) headerPhoto.src = safePhoto;
+      if (mobileUser) mobileUser.textContent = name;
+      if (mobileUserImg) mobileUserImg.src = safePhoto;
+    }
+
+    profileForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const name = document.getElementById("profileName").value.trim();
+      const gmail = document.getElementById("profileGmail").value.trim();
+      const phone = document.getElementById("profilePhone").value.trim();
+      const role = document.getElementById("profileRole").value;
+      const password = document.getElementById("profilePassword").value;
+      const confirm = document.getElementById("profileConfirmPassword").value;
+
+      if (password !== confirm) return alert("Passwords do not match");
+
+      let photo = placeholderUser;
+      if (profilePhotoPreview.src && profilePhotoPreview.style.display !== "none") {
+        photo = profilePhotoPreview.src;
+      }
+
+      const profileData = { name, gmail, phone, role, password, photo };
+      localStorage.setItem("myProfile", JSON.stringify(profileData));
+
+      updateHeader(name, photo);
+      alert("Profile saved!");
+    });
+
+    document.getElementById("profileCancel").addEventListener("click", () => {
+      loadProfile();
+    });
+
+    // ----------------- SELLERS -----------------
+    let sellers = JSON.parse(localStorage.getItem("sellers") || "[]");
+    let editingSellerIndex = -1;
+    const sellerForm = document.getElementById("sellerForm");
+    const sellerListEl = document.getElementById("sellerList");
+    const sellerPhotoInput = document.getElementById("sellerPhoto");
+    const sellerPhotoPreview = document.getElementById("sellerPhotoPreview");
+    const sellerCameraIcon = document.querySelector("#seller-section .camera-icon");
+    const sellerCancelBtn = document.getElementById("sellerCancel");
+
+    handleImageUpload(sellerPhotoInput, sellerPhotoPreview, sellerCameraIcon);
+
+    sellerCancelBtn.addEventListener("click", () => {
+      sellerForm.reset();
+      sellerPhotoPreview.src = "";
+      sellerPhotoPreview.style.display = "none";
+      sellerCameraIcon.style.display = "block";
+      editingSellerIndex = -1;
+      document.getElementById("sellerSubmit").textContent = "Create Seller";
+    });
+
+    function renderSellers() {
+      sellerListEl.innerHTML = "";
+      sellers.forEach((s, i) => {
+        const div = document.createElement("div");
+        div.className = "item";
+        div.innerHTML = `
+          <img src="${s.photo || placeholderUser}" alt="${s.name}">
+          <div class="meta">
+            <div class="name">${s.name} (${s.role})</div>
+            <div class="sub">${s.gmail} • ${s.phone}</div>
+          </div>
+          <div class="actions">
+            <button data-action="edit" data-i="${i}">Edit</button>
+            <button data-action="delete" data-i="${i}">Delete</button>
+          </div>
+        `;
+        sellerListEl.appendChild(div);
+      });
+      localStorage.setItem("sellers", JSON.stringify(sellers));
+    }
+
+    sellerListEl.addEventListener("click", e => {
+      const btn = e.target.closest("button");
+      if (!btn) return;
+      const i = Number(btn.dataset.i);
+      if (btn.dataset.action === "edit") {
+        const s = sellers[i];
+        document.getElementById("sellerRole").value = s.role;
+        document.getElementById("sellerName").value = s.name;
+        document.getElementById("sellerGmail").value = s.gmail;
+        document.getElementById("sellerPhone").value = s.phone;
+        document.getElementById("sellerPassword").value = s.password;
+        document.getElementById("sellerConfirmPassword").value = s.password;
+
+        if (s.photo && s.photo !== placeholderUser) {
+            sellerPhotoPreview.src = s.photo;
+            sellerPhotoPreview.style.display = "block";
+            sellerCameraIcon.style.display = "none";
+        } else {
+            sellerPhotoPreview.src = "";
+            sellerPhotoPreview.style.display = "none";
+            sellerCameraIcon.style.display = "block";
+        }
+
+        editingSellerIndex = i;
+        document.getElementById("sellerSubmit").textContent = "Save Changes";
+      } else if (btn.dataset.action === "delete") {
+        if (confirm("Delete this seller?")) {
+          sellers.splice(i, 1);
+          renderSellers();
+        }
+      }
+    });
+
+    sellerForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const role = document.getElementById("sellerRole").value;
+      const name = document.getElementById("sellerName").value.trim();
+      const gmail = document.getElementById("sellerGmail").value.trim();
+      const phone = document.getElementById("sellerPhone").value.trim();
+      const password = document.getElementById("sellerPassword").value;
+      const confirm = document.getElementById("sellerConfirmPassword").value;
+      if (password !== confirm) return alert("Passwords do not match");
+
+      let photo = placeholderUser;
+      if (sellerPhotoPreview.src && sellerPhotoPreview.style.display !== "none") {
+          photo = sellerPhotoPreview.src;
+      }
+
+      const sellerData = { role, name, gmail, phone, password, photo };
+      if (editingSellerIndex >= 0) {
+        sellers[editingSellerIndex] = sellerData;
+        editingSellerIndex = -1;
+        document.getElementById("sellerSubmit").textContent = "Create Seller";
+      } else {
+        sellers.push(sellerData);
+      }
+
+      renderSellers();
+      sellerForm.reset();
+      sellerPhotoPreview.src = "";
+      sellerPhotoPreview.style.display = "none";
+      sellerCameraIcon.style.display = "block";
+    });
+
+    // ----------------- SHOPS -----------------
+    let shops = JSON.parse(localStorage.getItem("shops") || "[]");
+    let editingShopIndex = -1;
+    const shopForm = document.getElementById("shopForm");
+    const shopListEl = document.getElementById("shopList");
+    const shopPhotoInput = document.getElementById("shopPhoto");
+    const shopPhotoPreview = document.getElementById("shopPhotoPreview");
+    const shopCameraIcon = document.querySelector("#shop-section .camera-icon");
+    const shopCancelBtn = document.getElementById("shopCancel");
+    const placeholderShop = "img/user.png";
+
+    handleImageUpload(shopPhotoInput, shopPhotoPreview, shopCameraIcon);
+
+    shopCancelBtn.addEventListener("click", () => {
+      shopForm.reset();
+      shopPhotoPreview.src = "";
+      shopPhotoPreview.style.display = "none";
+      shopCameraIcon.style.display = "block";
+      editingShopIndex = -1;
+      document.getElementById("shopSubmit").textContent = "Upload Shop";
+    });
+
+    function renderShops() {
+      shopListEl.innerHTML = "";
+      shops.forEach((s, i) => {
+        const div = document.createElement("div");
+        div.className = "item";
+        div.innerHTML = `
+          <img src="${s.photo || placeholderShop}" alt="${s.name}">
+          <div class="meta">
+            <div class="name">${s.name} (${s.id})</div>
+            <div class="sub">${s.phone || ''} • ${s.address || ''}</div>
+          </div>
+          <div class="actions">
+            <button data-action="edit" data-i="${i}">Edit</button>
+            <button data-action="delete" data-i="${i}">Delete</button>
+          </div>
+        `;
+        shopListEl.appendChild(div);
+      });
+      localStorage.setItem("shops", JSON.stringify(shops));
+    }
+
+    shopListEl.addEventListener("click", e => {
+      const btn = e.target.closest("button");
+      if (!btn) return;
+      const i = Number(btn.dataset.i);
+      
+      if (btn.dataset.action === "edit") {
+        const s = shops[i];
+        document.getElementById("shopId").value = s.id;
+        document.getElementById("shopName").value = s.name;
+        document.getElementById("shopPhone").value = s.phone;
+        document.getElementById("shopAddress").value = s.address;
+        
+        if (s.photo && s.photo !== placeholderShop) {
+            shopPhotoPreview.src = s.photo;
+            shopPhotoPreview.style.display = "block";
+            shopCameraIcon.style.display = "none";
+        } else {
+            shopPhotoPreview.src = "";
+            shopPhotoPreview.style.display = "none";
+            shopCameraIcon.style.display = "block";
+        }
+
+        editingShopIndex = i;
+        document.getElementById("shopSubmit").textContent = "Save Changes";
+
+      } else if (btn.dataset.action === "delete") {
+        if (confirm("Delete this shop?")) {
+          shops.splice(i, 1);
+          renderShops();
+        }
+      }
+    });
+
+    shopForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const id = document.getElementById("shopId").value.trim();
+      const name = document.getElementById("shopName").value.trim();
+      const phone = document.getElementById("shopPhone").value.trim();
+      const address = document.getElementById("shopAddress").value.trim();
+      
+      let photo = placeholderShop;
+      if (shopPhotoPreview.src && shopPhotoPreview.style.display !== "none") {
+          photo = shopPhotoPreview.src;
+      }
+
+      const shopData = { id, name, phone, address, photo };
+
+      if (editingShopIndex >= 0) {
+          shops[editingShopIndex] = shopData;
+          editingShopIndex = -1;
+          document.getElementById("shopSubmit").textContent = "Upload Shop";
+      } else {
+          shops.push(shopData);
+      }
+
+      renderShops();
+      shopForm.reset();
+      shopPhotoPreview.src = "";
+      shopPhotoPreview.style.display = "none";
+      shopCameraIcon.style.display = "block";
+    });
+
+    // INITIAL LOAD
+    loadProfile();
+    renderSellers();
+    renderShops();
+  </script>
+</body>
+</html>

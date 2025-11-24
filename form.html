@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>မေတ္တာမွန် | Form</title>
+    <link rel="stylesheet" href="formStyle.css">
+    <link rel="icon" type="image/jpg" href="img/logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <header class="main-header">
+            <div class="logo">
+                <img class="SLogo" src="img/logo.jpg" alt="Software Logo">
+                <h3>မေတ္တာမွန်</h3>
+            </div>
+            
+            <nav class="desktop-nav">
+                <a href="dashboard.html" class="nav-link ">Dashboard</a>
+                <a href="POS-setting - Admin/report.html" class="nav-link">Report</a>
+                <a href="form.html" class="nav-link active">Forms</a>
+                <a href="POS-setting - Admin/setting.html" class="nav-link">Setting</a>
+            </nav>
+           
+
+            <div class="user-info">
+                <span class="user-greeting">Hi Johny</span>
+                <span class="nice-day">Have a nice day!</span>
+            </div>
+
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            
+        </header>
+        
+        <nav id="mobileNavMenu" class="mobile-nav-menu">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="POS-setting - Admin/report.html" class="nav-link">Report</a>
+            <a href="form.html" class="nav-link active">Forms</a>
+            <a href="POS-setting - Admin/setting.html" class="nav-link">Setting</a>
+        </nav>
+        
+        <main class="main-content">
+            
+            <div class="tab-navigation">
+            <button class="tab-button active" data-tab="todayOrder">Today Order</button>
+            <button class="tab-button" data-tab="routeTable">Route Table</button>
+            <button class="tab-button" data-tab="exclusiveSales">Exclusive Sales</button>
+            
+        </div>
+        
+        <div id="routeTable" class="tab-content active">
+            <h2 class="table-title">Today's Route Table</h2>
+            <div class="table-outer-container routeTableData">
+                <div class="table-inner-container ">
+                    <table class="data-table " id="routeTableData">
+                        <thead>
+                            <tr>
+                                <th class="col-checkbox"></th>
+                                <th class="col-no">No</th>
+                                <th class="col-shop">Shop</th>
+                                <th class="col-item">Item</th>
+                                <th class="col-qty">Qty</th>
+                                <th class="col-unit">Unit</th>
+                                <th class="col-price">Price</th>
+                                <th class="col-address">Address</th>
+                                <th class="col-phone">Phone No</th>
+                                <th class="col-remark">Remark</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-body">
+                            <tr data-item-id="1">
+                                <td><input type="checkbox" checked></td>
+                                <td>1</td>
+                                <td>Shop 1</td>
+                                <td>Coffee</td>
+                                <td>20</td>
+                                <td>Packet</td>
+                                <td>5000</td>
+                                <td>33,57th Street,Mandalay</td>
+                                <td>09797979797</td>
+                                <td>-</td>
+                              
+                            </tr>
+                            <tr data-item-id="2">
+                                <td><input type="checkbox" checked></td>
+                                <td>1</td>
+                                <td>Shop 1</td>
+                                <td>Coffee</td>
+                                <td>20</td>
+                                <td>Packet</td>
+                                <td>5000</td>
+                                <td>33,57th Street,Mandalay</td>
+                                <td>09797979797</td>
+                                <td>-</td>
+                               
+                            </tr>
+                             <tr data-item-id="3">
+                                <td><input type="checkbox"></td>
+                                <td>1</td>
+                                <td>Shop 1</td>
+                                <td>Coffee</td>
+                                <td>20</td>
+                                <td>Packet</td>
+                                <td>5000</td>
+                                <td>33,57th Street,Mandalay</td>
+                                <td>09797979797</td>
+                                <td>-</td>
+                               
+                            </tr>
+                            <tr data-item-id="4">
+                                <td><input type="checkbox"></td>
+                                <td>1</td>
+                                <td>Shop 1</td>
+                                <td>Coffee</td>
+                                <td>20</td>
+                                <td>Packet</td>
+                                <td>5000</td>
+                                <td>33,57th Street,Mandalay</td>
+                                <td>09797979797</td>
+                                <td>-</td>
+                               
+                            </tr>
+                            <tr data-item-id="5"><td><input type="checkbox"></td><td>2</td><td>Shop 2</td><td>Tea</td><td>10</td><td>Box</td><td>2500</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="6"><td><input type="checkbox"></td><td>2</td><td>Shop 2</td><td>Tea</td><td>10</td><td>Box</td><td>2500</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="7"><td><input type="checkbox"></td><td>2</td><td>Shop 2</td><td>Tea</td><td>10</td><td>Box</td><td>2500</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="8"><td><input type="checkbox"></td><td>3</td><td>Shop 3</td><td>Milk</td><td>5</td><td>Carton</td><td>7000</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="9"><td><input type="checkbox"></td><td>3</td><td>Shop 3</td><td>Milk</td><td>5</td><td>Carton</td><td>7000</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="10"><td><input type="checkbox"></td><td>4</td><td>Shop 4</td><td>Snack</td><td>12</td><td>Bag</td><td>1500</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="11"><td><input type="checkbox"></td><td>4</td><td>Shop 4</td><td>Snack</td><td>12</td><td>Bag</td><td>1500</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="12"><td><input type="checkbox"></td><td>4</td><td>Shop 4</td><td>Snack</td><td>12</td><td>Bag</td><td>1500</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="exclusiveSales" class="tab-content">
+            <div style="display: flex; justify-content: space-between;">
+               <h2 class="table-title">Today's Exclusive Sales Table</h2>
+               <div class="form-actions"> 
+                   <button type="button" id="esSendBtn" class="btn send-btn">Send</button>
+               </div>
+            </div>
+            <div class="table-outer-container">
+                <div class="table-inner-container">
+                    <table class="data-table" id="exclusiveSalesData">
+                        <thead>
+                            <tr>
+                                <th class="col-no">No</th>
+                                <th class="col-shop">Shop</th>
+                                <th class="col-item">Item</th>
+                                <th class="col-qty">Qty</th>
+                                <th class="col-unit">Unit</th>
+                                <th class="col-price">Price</th>
+                                <th class="col-address">Address</th>
+                                <th class="col-phone">Phone No</th>
+                                <th class="col-remark">Remark</th>
+                                </tr>
+                        </thead>
+                        <tbody class="table-body">
+                            <tr data-item-id="1">
+                                <td>1</td>
+                                <td>Shop 1</td>
+                                <td>Coffee</td>
+                                <td>20</td>
+                                <td>Packet</td>
+                                <td>5000</td>
+                                <td>33,57th Street,Mandalay</td>
+                                <td>09797979797</td>
+                                <td>-</td>
+                               
+                            </tr>
+                            <tr data-item-id="2">
+                                <td>1</td>
+                                <td>Shop 1</td>
+                                <td>Coffee</td>
+                                <td>20</td>
+                                <td>Packet</td>
+                                <td>5000</td>
+                                <td>33,57th Street,Mandalay</td>
+                                <td>09797979797</td>
+                                <td>-</td>
+                               
+                            </tr>
+                            <tr data-item-id="3">
+                                <td>1</td>
+                                <td>Shop 1</td>
+                                <td>Coffee</td>
+                                <td>20</td>
+                                <td>Packet</td>
+                                <td>5000</td>
+                                <td>33,57th Street,Mandalay</td>
+                                <td>09797979797</td>
+                                <td>-</td>
+                                
+                            </tr>
+                            <tr data-item-id="4"><td>2</td><td>Shop 2</td><td>Tea</td><td>10</td><td>Box</td><td>2500</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="5"><td>2</td><td>Shop 2</td><td>Tea</td><td>10</td><td>Box</td><td>2500</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="6"><td>3</td><td>Shop 3</td><td>Milk</td><td>5</td><td>Carton</td><td>7000</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="7"><td>3</td><td>Shop 3</td><td>Milk</td><td>5</td><td>Carton</td><td>7000</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="8"><td>4</td><td>Shop 4</td><td>Snack</td><td>12</td><td>Bag</td><td>1500</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="9"><td>4</td><td>Shop 4</td><td>Snack</td><td>12</td><td>Bag</td><td>1500</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="10"><td>5</td><td>Shop 5</td><td>Juice</td><td>6</td><td>Bottle</td><td>3000</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="11"><td>5</td><td>Shop 5</td><td>Juice</td><td>6</td><td>Bottle</td><td>3000</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="12"><td>5</td><td>Shop 5</td><td>Juice</td><td>6</td><td>Bottle</td><td>3000</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="input-form-section">
+                <div class="form-row form-row-1">
+                    <div class="input-group">
+                        <label for="esShopName">Shop Name</label>
+                        <input class="sInput" list="esShops" id="esShopName" placeholder="Type or Select Shop">
+                        <datalist id="esShops">
+                            <option value="Shop 1">
+                            <option value="Shop 2">
+                            <option value="Shop 3">
+                        </datalist>
+                    </div>
+                    <div class="input-group">
+                        <label for="esItem">Item</label>
+                        <input class="sInput" list="esItems" id="esItem" placeholder="Type or Select Item">
+                        <datalist id="esItems">
+                            <option value="Coffee">
+                            <option value="Tea">
+                            <option value="Milk">
+                        </datalist>
+                    </div>
+                </div>
+
+                <div class="form-row form-row-2">
+                    <div class="input-group half-width">
+                        <label for="esQty">Qty</label>
+                        <input type="number" id="esQty" min="1" value="1">
+                    </div>
+                    <div class="input-group half-width">
+                        <label for="esUnit">Unit</label>
+                        <select id="esUnit">
+                            <option value="pcs">pcs</option>
+                            <option value="Packet">Packet</option>
+                            <option value="Box">Box</option>
+                        </select>
+                    </div>
+                    <!-- full-width -->
+                    <div class="input-group half-width">
+                        <label for="esPrice">Price</label>
+                        <input type="number" id="esPrice" min="0" value="0">
+                    </div>
+                    <div class="input-group half-width">
+                        <label for="esPhone">Phone No</label>
+                        <input type="text" id="esPhone">
+                    </div>
+                    <div class="input-group full-width">
+                        <label for="esAddress">Address</label>
+                        <input type="text" id="esAddress">
+                    </div>
+                </div>
+
+                <div class="form-row form-row-3">
+                    <div class="input-group remark-group">
+                        <label for="esRemark">Remark</label>
+                        <input type="text" id="esRemark">
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                   
+                    <button type="button" id="esResetBtn" class="btn reset-btn">Reset</button>
+                    <button type="button" id="esConfirmBtn" class="btn confirm-btn">Confirm</button>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div id="todayOrder" class="tab-content">
+            
+            <div style="display: flex; justify-content: space-between;">
+               <h2 class="table-title">Today's Order Table</h2>
+               <div class="form-actions"> 
+                   <button type="button" id="toSend" class="btn send-btn">Send</button>
+               </div>
+            </div>
+            <div class="table-outer-container">
+                <div class="table-inner-container">
+                    <table class="data-table" id="todayOrderData">
+                        <thead>
+                            <tr>
+                                <th class="col-no">No</th>
+                                <th class="col-shop">Shop</th>
+                                <th class="col-item">Item</th>
+                                <th class="col-qty">Qty</th>
+                                <th class="col-unit">Unit</th>
+                                <th class="col-date">Date</th>
+                                <th class="col-address">Address</th>
+                                <th class="col-phone">Phone No</th>
+                                <th class="col-remark">Remark</th>
+                                 </tr>
+                        </thead>
+                        <tbody class="table-body">
+                            <tr data-item-id="1">
+                                <td>1</td>
+                                <td>Shop 1</td>
+                                <td>Coffee</td>
+                                <td>20</td>
+                                <td>Packet</td>
+                                <td>12.12.25</td>
+                                <td>33,57th Street,Mandalay</td>
+                                <td>09797979797</td>
+                                <td>-</td>
+                            
+                            </tr>
+                            <tr data-item-id="2">
+                                <td>1</td>
+                                <td>Shop 1</td>
+                                <td>Coffee</td>
+                                <td>20</td>
+                                <td>Packet</td>
+                                <td>12.12.25</td>
+                                <td>33,57th Street,Mandalay</td>
+                                <td>09797979797</td>
+                                <td>-</td>
+                                
+                            </tr>
+                            <tr data-item-id="3">
+                                <td>1</td>
+                                <td>Shop 1</td>
+                                <td>Coffee</td>
+                                <td>20</td>
+                                <td>Packet</td>
+                                <td>12.12.25</td>
+                                <td>33,57th Street,Mandalay</td>
+                                <td>09797979797</td>
+                                <td>-</td>
+                                
+                            </tr>
+                            <tr data-item-id="4"><td>2</td><td>Shop 2</td><td>Tea</td><td>10</td><td>Box</td><td>12.12.25</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="5"><td>2</td><td>Shop 2</td><td>Tea</td><td>10</td><td>Box</td><td>12.12.25</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="6"><td>3</td><td>Shop 3</td><td>Milk</td><td>5</td><td>Carton</td><td>12.12.25</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="7"><td>3</td><td>Shop 3</td><td>Milk</td><td>5</td><td>Carton</td><td>12.12.25</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="8"><td>4</td><td>Shop 4</td><td>Snack</td><td>12</td><td>Bag</td><td>12.12.25</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="9"><td>4</td><td>Shop 4</td><td>Snack</td><td>12</td><td>Bag</td><td>12.12.25</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="10"><td>5</td><td>Shop 5</td><td>Juice</td><td>6</td><td>Bottle</td><td>12.12.25</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="11"><td>5</td><td>Shop 5</td><td>Juice</td><td>6</td><td>Bottle</td><td>12.12.25</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                            <tr data-item-id="12"><td>5</td><td>Shop 5</td><td>Juice</td><td>6</td><td>Bottle</td><td>12.12.25</td><td>33,57th Street,Mandalay</td><td>09797979797</td><td>-</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="input-form-section">
+                <div class="form-row form-row-1">
+                    <div class="input-group">
+                        <label for="toShopName">Shop Name</label>
+                        <input class="sInput" list="toShops" id="toShopName" placeholder="Type or Select Shop">
+                        <datalist id="toShops">
+                            <option value="Shop 1">
+                            <option value="Shop 2">
+                        </datalist>
+                    </div>
+                    <div class="input-group">
+                        <label for="toItem">Item</label>
+                        <input class="sInput" list="toItems" id="toItem" placeholder="Type or Select Item">
+                        <datalist id="toItems">
+                            <option value="Coffee">
+                            <option value="Tea">
+                        </datalist>
+                    </div>
+                </div>
+
+                <div class="form-row form-row-2">
+                    <div class="input-group half-width">
+                        <label for="toQty">Qty</label>
+                        <input type="number" id="toQty" min="1" value="1">
+                    </div>
+                    <div class="input-group half-width">
+                        <label for="toUnit">Unit</label>
+                        <select id="toUnit">
+                            <option value="pcs">pcs</option>
+                            <option value="Packet">Packet</option>
+                        </select>
+                    </div>
+                    <!-- full-width -->
+                    <div class="input-group half-width">
+                        <label for="toDate">Date</label>
+                        <input type="date" id="toDate">
+                    </div>
+                    <div class="input-group half-width">
+                        <label for="toPhone">Phone No</label>
+                        <input type="text" id="toPhone">
+                    </div>
+                    <div class="input-group full-width">
+                        <label for="toAddress">Address</label>
+                        <input type="text" id="toAddress">
+                    </div>
+                </div>
+
+                <div class="form-row form-row-3">
+                    <div class="input-group remark-group">
+                        <label for="toRemark">Remark</label>
+                        <input type="text" id="toRemark">
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" id="toResetBtn" class="btn reset-btn">Reset</button>
+                    <button type="button" id="toConfirmBtn" class="btn confirm-btn">Confirm</button>
+                </div>
+
+                 
+                
+           </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </main>
+    </div>
+
+
+    <script src="formScript.js"></script>
+</body>
+</html>

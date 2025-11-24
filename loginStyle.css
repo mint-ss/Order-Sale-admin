@@ -1,0 +1,433 @@
+/* Global Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Use the imported font */
+}
+
+body {
+    background-color: #deebff; /* Light background for the whole page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide overflow from curved corners */
+}
+
+/* -------------------------------------- */
+/* 1. Mobile View (First Image - Black/White) */
+/* -------------------------------------- */
+
+.blue-section, .desktop-only, .form-title-desktop, .subtitle-desktop, .social-login-desktop, .terms-checkbox-desktop, .desktop-signup, .back-arrow-desktop {
+    display: none; /* Hide desktop elements by default */
+}
+
+.login-container {
+    width: 100vw;
+    height: 100vh;
+    background:white; /* Mobile body background */
+}
+
+.form-section {
+    width: 100%;
+    /* max-width: 400px; Max width for mobile design */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    /* padding: 0; */
+    background: transparent;
+}
+
+/* Mobile Header (Top Black Curved Section) */
+.mobile-header {
+    width: 100%;
+    height: 330px; /* Adjust height as needed */
+    /* background-color: #4c9aff; Black background */
+    background-repeat: no-repeat;
+    opacity: 100%;
+    background-size: contain;
+    background: url(img/2.jpg) 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-bottom-left-radius: 0px; /* Curve the bottom-left */
+    border-bottom-right-radius: 0px;
+    z-index: 1;
+    /* Optional: Add the subtle pattern seen in the first image */
+    /* background-image: radial-gradient(#333 10%, transparent 11%), radial-gradient(#333 10%, transparent 11%); */
+    /* background-size: 30px 30px;
+    background-position: 0 0, 15px 15px; */
+}
+
+.logo-box {
+    position: absolute;
+    top: 55px;
+    width: 90px;
+    height: 90px;
+    /* background-color: white; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    /* background: url(img/logo.jpg); */
+}
+
+ .logo-placeholder {
+    display: block;
+    width: 100%;
+    height: 100%; 
+    background-image: url(/img/logo.jpg);
+    border-radius: 50%;
+    background-size: cover;
+    /* background-color: #000; Inner logo shape */
+   
+}
+
+
+/* Login Card for Mobile (White Section) */
+.login-card {
+    background-color: #fff;
+    width: 100%;
+    /* max-width: 400px; */
+    border-radius: 60px 0px 60px 0px; /* Match the large curve */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px 40px;
+    position: relative;
+    margin-top: -100px;/* Overlap with the black header */
+    z-index: 2;
+    height: 85%;
+    /* height: 480px; */
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 22px;
+    font-weight: 600;
+    font-size: 24px;
+    color: #4c9aff;
+    /* color: #333; */
+}
+
+/* .back-arrow-mobile {
+    position: absolute;
+    top: 50px; /* Adjust as needed 
+    left: 20px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+    z-index: 3;
+    display: none;  Not visible in the first image, but useful for a back button 
+} */
+
+/* Form Elements (Mobile & Common) */
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #666;
+}
+
+input[type="email"], 
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 3px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #b3d4ff;
+    outline: none;
+}
+
+/* .forgot-password-link {
+    display: block; /* Hide on mobile view as per the first image 
+} */
+
+.forgot-password-link {
+    display: block; /* Show on desktop */
+    text-align: right;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.forgot-password-link a {
+    color: #4c9aff;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.login-button {
+    width: 100%;
+    padding: 14px 15px;
+    background-color: #4c9aff; /* Black button for mobile */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #0065ff;
+}
+
+/* .signup-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.mobile-signup a {
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+} */
+
+/* -------------------------------------- */
+/* 2. Desktop/Tablet View (Second Image - Blue/White Card) */
+/* -------------------------------------- */
+
+@media (min-width: 768px) {
+    body {
+        background-color: #b3d4ff; /* Desktop/Tablet background */
+    }
+
+    .login-container {
+        width: 770px; /* Approximate size for desktop card */
+        height: 450px;
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.129);
+        display: flex;
+        overflow: hidden;
+        padding: 5px;
+    }
+
+    .mobile-header, .form-title, .back-arrow-mobile, .mobile-signup {
+        display: none; /* Hide mobile elements */
+    }
+    
+    .blue-section, .desktop-only, .form-title-desktop, .subtitle-desktop, .social-login-desktop, .terms-checkbox-desktop, .desktop-signup, .back-arrow-desktop {
+        display: block; /* Show desktop elements */
+    }
+
+    /* Left Blue Section */
+    .blue-section {
+        flex: 1;
+        /* background: linear-gradient(135deg, #007bff, #00c6ff); Blue gradient matching the image */
+        background:url(img/3.jpg);
+        background-size: cover;
+        position: relative;
+        /* padding: 50px; */
+        height: 440px;
+        width: 770px;
+        border-radius: 10px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    /* .back-arrow-desktop {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 10px;
+        color: white;
+        text-decoration: none;
+        font-weight: 300;
+    } */
+
+    .can-read-text {
+        font-size: 9px;
+        letter-spacing: 2px;
+        font-weight: 500;
+    }
+
+    .speed-up-text {
+        font-size: 19px;
+        font-weight: 550;
+        line-height: 1.5;
+        margin-top: 10px;
+    }
+
+    .partners {
+        text-align: left;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.7);
+        padding-top: 10px;
+    }
+
+    .partners span {
+        margin-right: 15px;
+        font-size: 16px; /* Placeholder for icon size */
+    }
+
+    /* Right Form Section */
+    .form-section {
+        flex: 1;
+        padding: 0px 30px;
+        align-items: flex-start;
+        justify-content: center;
+        width: 300px;
+        height: auto;
+        margin-top: 0;
+    }
+    
+    .login-card {
+        background: none;
+        box-shadow: none;
+        padding: 0px 20px;
+        margin-top: 0;
+        width: 100%;
+    }
+
+    .form-title-desktop {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #333;
+        /* color: #4c9aff; */
+        margin-top: 0px;
+    }
+    
+    .subtitle-desktop {
+        font-size: 12px;
+        color: #777;
+        margin-bottom: 25px;
+    }
+
+    /* Desktop Form Adjustments */
+    label {
+        font-size: 12px;
+        color: #666;
+        font-weight: 500;
+        margin-top: 10px;
+    }
+
+    input {
+        background-color: #f7f7f7;
+        border: 1px solid #eee;
+        border-radius: 4px;
+        padding: 9px 16px;
+        font-size: 15px;
+        margin-bottom: 3px;
+    }
+
+    .forgot-password-link {
+        display: block; /* Show on desktop */
+        text-align: right;
+        margin-bottom: 30px;
+    }
+
+    .forgot-password-link a {
+        color: #4c9aff;
+        text-decoration: none;
+        font-size: 12px;
+    }
+    
+    /* .terms-checkbox-desktop {
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+        font-size: 12px;
+        color: #555;
+    }
+
+    .terms-checkbox-desktop input[type="checkbox"] {
+        width: auto;
+        margin-right: 8px;
+        margin-bottom: 0;
+    } */
+
+    .login-button {
+        background-color: #4c9aff; /* Purple button for desktop */
+        margin-top: 0;
+    }
+    
+    .login-button:hover {
+        background-color: #0065ff;
+    }
+
+    /* Desktop Social Login */
+    /* .separator {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: 20px 0;
+        color: #aaa;
+        font-size: 12px;
+    }
+
+    .separator::before,
+    .separator::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid #eee;
+    }
+
+    .separator:not(:empty)::before {
+        margin-right: .5em;
+    }
+
+    .separator:not(:empty)::after {
+        margin-left: .5em;
+    }
+
+    .social-button {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        background-color: white;
+        color: #333;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .social-button .icon {
+        font-size: 18px;
+        margin-right: 10px;
+         Placeholder for actual icons 
+    }
+    
+    .desktop-signup {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 13px;
+        color: #777;
+    }
+    
+    .desktop-signup a {
+        color: #5b42d2;
+        font-weight: 600;
+        text-decoration: none;
+    } */
+
+}

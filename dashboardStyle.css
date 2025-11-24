@@ -1,0 +1,1060 @@
+/* Global Styles and Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary-blue: #4c9aff; /* Main Blue Color */
+    --primary-blue-faint: #b0d2fd;
+    --light-gray-bg: #F1F1F1;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    background-color: var(--primary-blue-faint);
+    min-height: 100vh;
+    /* padding: 5px 0px; */
+}
+
+.dashboard-container {
+    padding: 0px;
+}
+
+/* -------------------------------------- */
+/* 1. Header & Navigation Styles */
+/* -------------------------------------- */
+
+.main-header {
+    background-color: var(--primary-blue-faint);
+    padding: 15px 20px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    box-shadow: var(--card-shadow);
+}
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+    margin-left: -10px;
+    /* background-color: #0065ff; */
+}
+.logo h3{
+    font-size: 18px;
+    font-weight: 600;
+    color: #333333;
+    margin-top: 7px;
+    display: block;
+}
+
+.SLogo{
+    width: 50px;
+    height: 50px; 
+    border-radius: 50%; 
+    margin-right: 5px; 
+    /* margin-top: 0px; */
+    /* margin-bottom: -2px; */
+}
+
+/* Desktop Navigation (Hidden on Mobile) */
+.desktop-nav {
+    display: none; 
+    flex-grow: 1;
+    margin-left: 0px;
+}
+
+.desktop-nav .nav-link {
+    color: #555;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 450;
+    padding: 5px 15px;
+    margin-right: 15px;
+    margin-bottom: 5px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.desktop-nav .nav-link.active {
+    color: #0065ff;
+    border-bottom: 3px solid #0065ff;
+}
+
+.user-info {
+    text-align: right;
+    line-height: 1.3;
+    margin-right: 20px;
+    margin-left: 14%;
+}
+
+.user-greeting {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0065ff;
+    display: block;
+}
+
+.nice-day {
+    font-size: 12px;
+    color: #0065ff;
+    display: block;
+}
+
+/* Mobile Menu Toggle (Only on Mobile) */
+.menu-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    display: block; /* Show on mobile */
+}
+
+/* Mobile Pop-up Navigation */
+.mobile-nav-menu {
+    display: none;
+    position: absolute;
+    top: 60px; /* Adjust based on header height */
+    right: 15px;
+    background-color: white;
+    box-shadow: var(--card-shadow);
+    border-radius: 8px;
+    z-index: 100;
+    padding: 10px;
+    flex-direction: column;
+}
+
+.mobile-nav-menu.visible {
+    display: flex;
+}
+
+.mobile-nav-menu .nav-link {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+.mobile-nav-menu .nav-link.active {
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+.mobile-nav-menu .nav-link:last-child {
+    border-bottom: none;
+}
+
+
+/* -------------------------------------- */
+/* 2. Main Content & Tabs */
+/* -------------------------------------- */
+
+.main-content {
+    padding: 20px 15px; /* Mobile padding */
+    background-color: #deebff;
+    border-radius: 30px 30px 0px 0px;
+}
+
+/* Tab Navigation */
+.tab-navigation {
+    display: flex;
+    justify-content: center;
+    background-color: var(--light-gray-bg);
+    padding: 7px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 10px 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #555;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tab-button.active {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 10px 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* -------------------------------------- */
+/* 3. Overview Cards */
+/* -------------------------------------- */
+
+.overview-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+    gap: 15px;
+    margin-bottom: 25px;
+    background-color: var(--light-gray-bg);
+    padding: 7px 10px;
+    border-radius: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 15px 10px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+}
+
+.icon-box {
+    font-size: 20px;
+    /* color: #ffc107; Gold/Icon color */
+    margin-bottom: 2px;
+}
+.icon-box i {
+    color: #ffc107;
+}
+
+.card-title {
+    font-size: 12px;
+    color: #555;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.card-value {
+    font-size: 18px;
+    font-weight: 650;
+    color: var(--primary-blue);
+}
+.red-text {
+    color: #f00;
+}
+.gray-text {
+    color: #5f5f5f;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+
+/* -------------------------------------- */
+/* 4. Table Styles (Mobile) */
+/* -------------------------------------- */
+
+.table-section {
+    background-color: white;
+    padding: 15px;
+    padding-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    border: 5px solid var(--light-gray-bg);
+}
+
+.table-content {
+    display: none;
+}
+
+.table-content.active {
+    display: block;
+}
+
+.table-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.table-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.dropdown-container select {
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 12px;
+}
+
+/* Table Wrapper for Horizontal Scroll on Mobile */
+.table-wrapper {
+    overflow-x: auto; /* Horizontal scroll for tables on mobile/small screens */
+    max-width: 100%;
+    /* Fixed height for vertical scroll */
+    max-height: 300px; 
+    overflow-y: auto; 
+    border: 1px solid #eee;
+    border-radius: 0px;
+}
+
+
+.data-table {
+    width: 650px; /* Set a minimum width for mobile horizontal scroll */
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 13px;
+}
+
+.data-table th, .data-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #eee;
+    white-space: nowrap; /* Prevent wrapping in cells */
+}
+
+.data-table th {
+    background-color: #deebff;
+    color: #333;
+    font-weight: 600;
+    position: sticky; /* Keep header visible during vertical scroll */
+    top: 0;
+    z-index: 10;
+}
+
+.data-table tbody tr:hover {
+    background-color: var(--light-gray-bg);
+}
+
+
+/* -------------------------------------- */
+/* 5. Desktop/Tablet Styles (> 768px) */
+/* -------------------------------------- */
+
+@media (min-width: 768px) {
+    
+    .dashboard-container {
+        padding: 0px 0px;
+        /* max-width: 1200px; */
+        margin: 0px auto;
+        min-height: calc(100vh - 40px);
+    }
+    
+    /* Header/Nav Adjustments */
+    .main-header {
+        padding: 15px 20px;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    
+    .logo {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    /* background-color: #0065ff; */
+    
+    }
+   .logo h3{
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333333;
+    margin-top: 7px;
+    }
+
+    .SLogo{
+    width: 50px;
+    height: 50px; 
+    border-radius: 50%; 
+    margin-right: 5px; 
+}
+    
+    .menu-toggle {
+        display: none; /* Hide hamburger menu */
+    }
+    
+    .desktop-nav {
+        display: flex; /* Show desktop navigation */
+        
+        margin-left: 25%;
+    }
+
+    .user-info {
+        margin-left: auto;
+    }
+
+    .main-content {
+        padding: 20px 60px;
+        border-radius: 40px;
+        box-shadow: 0px -2px 6px #7777771c;
+    }
+
+
+
+/* Tab Navigation */
+.tab-navigation {
+    padding: 5px;
+    margin-bottom: -5px;
+}
+
+.tab-button {
+    padding: 12px 5px;
+    font-size: 14px;
+}
+
+.tab-button.active {
+    padding: 12px 5px;
+}
+
+
+    /* Cards - 4 Columns */
+    .overview-cards {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns for desktop */
+        gap: 15px;
+        margin-top: 30px;
+        padding: 15px 15px;
+    }
+
+    .card {
+        padding: 14px;
+    }
+    .icon-box {
+        font-size: 20px;
+        margin-bottom: 0px;
+    }
+
+    .icon-box i img{
+        width: 35px;
+        height: 35px;
+    }
+
+    .card-value {
+        font-size: 23px;
+    }
+
+    /* Table Adjustments */
+    .table-section {
+        padding: 20px;
+    }
+    
+    .table-wrapper {
+        overflow-x: hidden; /* No horizontal scroll needed */
+        max-height: 400px; /* Increase height for desktop view */
+    }
+
+    .data-table {
+        width: 100%; /* Use full width */
+    }
+
+    .data-table th, .data-table td {
+        padding: 12px 15px;
+    }
+}
+
+/* -------------------------------------- */
+/* 6. Additional Button Styles */   
+.action-btn {
+    padding: 6px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 450;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    flex-grow: 1;
+    max-width: 150px;
+    margin-right: 5px;
+}
+
+.add-route-btn {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.add-route-btn:hover {
+    background-color: #4c9aff;
+}
+
+.view-route-btn {
+    background-color: #f6c12d;
+    color: #333;
+}
+
+.view-route-btn:hover {
+    background-color: #e5b225;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Base Styles */
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+} */
+
+/* --- Modal Styles --- */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark background (Overlay) */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    /* Mobile/Desktop Center Alignment */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Mobile default */
+    max-width: 600px; /* Desktop max width */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Close button (X) */
+.close-btn {
+    color: #333;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: #f00;
+}
+
+/* --- Form General Styles --- */
+
+.form-header h2 {
+    text-align: left;
+    color: #333;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.input-group label {
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 4px;
+    font-size: 0.9em;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #eee; /* Form input background */
+}
+
+/* Staff Name: Readonly styling */
+#staffName {
+    background-color: #eee;
+}
+
+/* --- Table Styles --- */
+
+.table-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    height: 130px;
+}
+
+#routeTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+.table-header-row1 {
+    background-color: #b3d4ff; /* Light blue header color */
+}
+.table-header-row1 th {
+    /* background-color: #5d9cec; Light blue header color */
+    /* text-align: left; */
+    color: #333;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+/* Fixed column widths */
+.col-no { width: 5%; }
+.col-qty { width: 5%; }
+.col-unit { width: 28%; }
+/* Remaining space for Shop, Address, Item*/
+.col-shop{ width: 25%; }  
+.col-address {width: 8%;}
+.col-item { width: 18%;}
+
+/* Fixed height for Table Body (approx. 5 rows) and Scrollable */
+#routeTableBody {
+    display: block; 
+    max-height: 130px; /* 5 row height */
+    overflow-y: auto;
+}
+
+#routeTable thead, #routeTable tbody tr {
+    display: table; 
+    width: 100%;
+    /* table-layout: fixed; */
+}
+
+#routeTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#routeTable tbody td {
+    padding: 8px 0px;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+}
+
+/* --- Assignment Section (Dynamic Inputs) --- */
+
+.assignment-section {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start; /* Align content to the top */
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Mobile responsiveness */
+}
+
+.shop-input-group {
+    /* Shop Name သည် ၎င်း၏ကိုယ်ပိုင် နေရာယူရန် */
+    max-width: 200px; 
+    flex-basis: 100%; /* Default to full width on mobile/start */
+}
+
+/* Manual Item Input Row: Item/Qty/Unit/Price and Add */
+.manual-item-input-row {
+    display: flex;
+    /* flex-grow: 1; ကျန်ရှိနေတဲ့နေရာကို ယူရန် */
+    gap: 10px;
+    align-items: flex-end; /* inputs တွေကို အောက်တည့်တည့် align လုပ်ရန် */
+}
+
+/* .manual-item-input-row .input-group {
+    flex: 1; 
+    min-width: 30px; 
+} */
+
+.item-group{
+    width: 130px;
+}
+.qty-group{
+    width: 10px;
+}
+.unit-group{
+width: 80px;
+}
+.price-group{
+    width: 70px;
+}
+
+.sInput{
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 0.9em;
+    background-color: #fff;
+    width: 100%;
+}
+
+
+/* Database Selection Section */
+.db-selection-section {
+    display: flex;
+    flex-grow: 1; 
+    align-items: flex-start;
+    gap: 10px;
+    /* Checkbox list သည် Shop Name ၏ ဘေးတွင် နေရာယူစေရန် */
+}
+
+.checkbox-list-container {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-height: 130px; /* ၅ row စာ scrollable height */
+    overflow-y: auto;
+    padding: 5px;
+    width: 355px;
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    padding: 4px 5px;
+}
+
+.checkbox-row input[type="checkbox"] {
+    /* ပုံထဲကလို check icon အတွက် အရှေ့က checkbox */
+    width: 17px;
+    height: 17px;
+    margin-right: 5px;
+    /* Custom checkmark styling should be applied here */
+    accent-color: #333;
+}
+
+.checkbox-row label {
+    font-size: 0.9em;
+}
+
+
+.add-btn {
+    background-color: #4c9aff; /* General Add button color */
+    color: white;
+    border: none;
+    padding: 9px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    height: 38px; /* Input တွေနဲ့ အမြင့်တူရန် */
+    align-self: flex-end; 
+    min-width: 80px;
+   
+}
+
+/* --- Remark Section --- */
+
+.remark-group {
+    margin-bottom: 20px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* --- Action Buttons --- */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn {
+    padding: 9px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 400;
+    text-transform: uppercase;
+    min-width: 100px;
+}
+
+.reset-btn {
+    background-color: #d9534f; /* ပုံထဲက Red */
+    color: white;
+}
+
+.submit-btn {
+    background-color: #5cb85c; /* ပုံထဲက Green */
+    color: white;
+}
+
+/* --- Responsive Adjustments --- */
+
+@media (min-width: 601px) {
+    /* Desktop layout for dynamic sections */
+    .shop-input-group {
+        flex-basis: auto; /* Revert to natural size */
+    }
+
+    /* Make the Manual input section take up the rest of the row */
+    .manual-item-input-row {
+        flex-grow: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-inputs {
+        flex-direction: column; 
+    }
+
+    /* Dynamic section stack on mobile */
+    .assignment-section {
+        flex-direction: column;
+    }
+    
+    .shop-input-group {
+        max-width: 100%;
+    }
+
+    /* Manual inputs wrap to two items per row */
+    .manual-item-input-row {
+        flex-wrap: wrap;
+    }
+
+    /* .manual-item-input-row .input-group {
+        flex-basis: calc(50% - 5px); 
+    } */
+   
+
+    .add-manual {
+        width: 100%; 
+    }
+
+    /* DB selection section stack on mobile */
+    .db-selection-section {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .add-db {
+        width: 100%;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Modal & Form Base Styles (Reusing Previous) --- */
+
+/* Base modal styles should be reused from the previous component if possible */
+.modal {
+    /* ... (Reuse styles from previous component) ... */
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    /* ... (Reuse styles from previous component) ... */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%; 
+    max-width: 600px; 
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: white; 
+}
+
+.view-close-btn {
+    /* Styles for the X button */
+    color: #333;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.form-header h2 {
+    /* ... (Reuse styles) ... */
+    margin-bottom: 20px;
+}
+
+.form-row {
+    /* ... (Reuse styles) ... */
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+/* .input-group label {
+    /* ... (Reuse styles) ... 
+} */
+
+#staffNameView, #assignmentDateView {
+    /* Input styles (Reuse) */
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+}
+
+#staffNameView {
+    background-color: #ddd; /* Readonly style */
+}
+
+/* --- Table Styles (Scrollable) --- */
+
+/* Outer container allows vertical scroll, Inner allows horizontal */
+.table-outer-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow-y: auto; /* Enable Vertical Scroll for many rows */
+    max-height: 250px; /* Max height for vertical scroll */
+}
+
+.table-inner-container {
+    /* This container ensures the table can be wider than the parent, enabling horizontal scroll */
+    overflow-x: auto; /* Enable Horizontal Scroll for many columns */
+}
+
+#routeViewTable {
+    width: 100%;
+    /* min-width: 650px; Minimum width to ensure horizontal scroll when columns exceed container */
+    border-collapse: collapse;
+}
+
+.table-header-row th {
+    /* ... (Reuse styles) ... */
+    background-color: #5d9cec; 
+    color: white;
+    padding: 10px 5px;
+    text-align: left;
+    font-weight: normal;
+    position: sticky; /* Keep header visible on vertical scroll */
+    top: 0; 
+    z-index: 10;
+}
+
+
+/* Specific Column Widths (Adjust as needed) */
+.col-no { width: 50px; }
+.col-qty { width: 80px; }
+.col-unit { width: 90px; }
+.col-shop, .col-address, .col-item { min-width: 120px; } 
+
+#routeViewTableBody td{
+    padding: 8px 5px;
+    border-bottom: 1px solid #eee;
+}
+
+/* --- Action Buttons --- */
+
+.view-actions {
+    display: flex;
+    justify-content: flex-end; /* Align to the right as in the image */
+}
+
+.btn {
+    /* ... (Reuse styles) ... */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 400;
+    text-transform: uppercase;
+    min-width: 100px;
+}
+
+.reset-btn {
+    background-color: #f04e4e; /* Red color from image */
+    color: white;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 650px) {
+    .header-inputs {
+        flex-direction: column; 
+    }
+}

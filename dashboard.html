@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>မေတ္တာမွန် | Dashboard</title>
+    <link rel="stylesheet" href="dashboardStyle.css">
+    <link rel="icon" type="image/jpg" href="img/logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <header class="main-header">
+            <div class="logo">
+                <img class="SLogo" src="img/logo.jpg" alt="Software Logo">
+                <h3>မေတ္တာမွန်</h3>
+            </div>
+            
+            <nav class="desktop-nav">
+                <a href="dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="POS-setting - Admin/report.html" class="nav-link">Report</a>
+                <a href="form.html" class="nav-link">Forms</a>
+                <a href="POS-setting - Admin/setting.html" class="nav-link">Setting</a>
+            </nav>
+           
+
+            <div class="user-info">
+                <span class="user-greeting">Hi Johny</span>
+                <span class="nice-day">Have a nice day!</span>
+            </div>
+
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            
+        </header>
+        
+        <nav id="mobileNavMenu" class="mobile-nav-menu">
+            <a href="dashboard.html" class="nav-link active">Dashboard</a>
+            <a href="POS-setting - Admin/report.html" class="nav-link">Report</a>
+            <a href="form.html" class="nav-link">Forms</a>
+            <a href="POS-setting - Admin/setting.html" class="nav-link">Setting</a>
+        </nav>
+        
+        <main class="main-content">
+            
+            <div class="tab-navigation">
+                <button class="tab-button active" data-tab="daily-sales">Daily Sales & Order</button>
+                <button class="tab-button" data-tab="staff-management">Staff Management</button>
+            </div>
+            
+            <div class="overview-cards">
+                <div class="card">
+                    <div class="icon-box"><i><img src="img/Money-Bags--Streamline-Ultimate.png"></i></div>
+                    <p class="card-title">Total Sales Amount</p>
+                    <p class="card-value">1000000 Ks</p>
+                </div>
+                <div class="card">
+                    <div class="icon-box"><i><img src="img/Shop--Streamline-Ultimate.png"></i></div>
+                    <p class="card-title">Total Shop Today</p>
+                    <p class="card-value red-text">10 / <span class="gray-text">100</span></p>
+                </div>
+                <div class="card">
+                    <div class="icon-box"><i><img src="img/Shopping-Basket-Cash--Streamline-Ultimate.png"></i></div>
+                    <p class="card-title">New Order Count</p>
+                    <p class="card-value">30</p>
+                </div>
+                <div class="card">
+                    <div class="icon-box"><i><img src="img/Shipment-Check--Streamline-Ultimate.png"></i></div>
+                    <p class="card-title">Distribution Coverage</p>
+                    <p class="card-value">10 %</p>
+                </div>
+            </div>
+
+            <div class="table-section">
+                <div id="daily-sales" class="table-content active">
+                    <div class="table-header-row">
+                        <h3 class="table-title">Daily Records</h3>
+                        <div class="dropdown-container">
+                            <i style="width: 20px;padding-bottom: 4px; border-bottom: 1px solid #555;"><img style="width: 20px; margin-bottom: -5px;" src="img/Filter--Streamline-Ionic-Filled.png"></i>
+                            <select id="sales-dropdown" class="table-dropdown" style="margin-left:-5px; border-radius:0px; border:none; border-bottom: 1px solid #555;">
+                                <option value="Time" selected>Time</option>
+                                <option value="Name">Name</option>
+                                <option value="Shop">Shop</option>
+                                <option value="Qty">Qty</option>
+                                <option value="Price">Price</option>
+                            </select>
+                            <select id="sales-dropdown" class="table-dropdown" style="margin-left:18px;">
+                                <option value="All" selected>All</option>
+                                <option value="Sale">Sale</option>
+                                <option value="Order">Order</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="table-wrapper daily-records-table">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Seller</th>
+                                    <th>Shop</th>
+                                    <th>Date</th>
+                                    <th>Qty</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Remark</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1</td><td>Aung Aung</td><td>City Mart</td><td>17-11-2025</td><td>5</td><td>50000</td><td>Sale</td><td>None</td></tr>
+                                <tr><td>2</td><td>Bo Bo</td><td>ABC Store</td><td>17-11-2025</td><td>2</td><td>25000</td><td>Order</td><td>Urgent</td></tr>
+                                <tr><td>3</td><td>Zaw Zaw</td><td>YGN Mart</td><td>17-11-2025</td><td>10</td><td>150000</td><td>Sale</td><td>None</td></tr>
+                                <tr><td>4</td><td>Aye Aye</td><td>MM Store</td><td>17-11-2025</td><td>3</td><td>40000</td><td>Sale</td><td>None</td></tr>
+                                <tr><td>5</td><td>Khin Khin</td><td>Dagon Shop</td><td>17-11-2025</td><td>7</td><td>90000</td><td>Order</td><td>Check Stock</td></tr>
+                                <tr><td>6</td><td>Min Min</td><td>Bago Store</td><td>17-11-2025</td><td>4</td><td>60000</td><td>Sale</td><td>None</td></tr>
+                                <tr><td>7</td><td>Nyan Nyan</td><td>Mandalay Mart</td><td>17-11-2025</td><td>6</td><td>75000</td><td>Sale</td><td>None</td></tr>
+                                <tr><td>8</td><td>Thida</td><td>Taunggyi Mart</td><td>17-11-2025</td><td>1</td><td>15000</td><td>Sale</td><td>Follow up</td></tr>
+                                <tr><td>9</td><td>Hla Hla</td><td>Pyin Oo Lwin Shop</td><td>17-11-2025</td><td>8</td><td>120000</td><td>Order</td><td>None</td></tr>
+                                <tr><td>10</td><td>Ko Ko</td><td>Naypyitaw Store</td><td>17-11-2025</td><td>2</td><td>30000</td><td>Sale</td><td>None</td></tr>
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="staff-management" class="table-content">
+                    <div class="table-header-row">
+                        <h3 class="table-title">Staff Information</h3>
+                        <div class="dropdown-container">
+                            <select id="staff-dropdown" class="table-dropdown">
+                                <option value="ID" selected>ID</option>
+                                <option value="Name">Name</option>
+                                <option value="TDP">TDP</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="table-wrapper staff-info-table">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Name</th>      
+                                    <th>Position</th>
+                                    <th>Phone Number</th>
+                                    <th>Assigned Date</th>         
+                                    <th>Status</th>
+                                    <th>Remark</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1</td><td>Hla Aung</td><td>Supervisor</td><td>09-1234567</td><td>01-01-2024</td><td>Active</td><td>Good</td><td><button class="action-btn add-route-btn">Add</button><button class="action-btn view-route-btn">View</button></td></tr>
+                                <tr><td>2</td><td>Mg Mg</td><td>Sales Rep</td><td>09-2345678</td><td>05-02-2024</td><td>Active</td><td>Need Training</td><td><button class="action-btn add-route-btn">Add</button><button class="action-btn view-route-btn">View</button></td></tr>
+                                <tr><td>3</td><td>Cho Cho</td><td>Driver</td><td>09-3456789</td><td>10-03-2024</td><td>Inactive</td><td>On Leave</td><td><button class="action-btn add-route-btn">Add</button><button class="action-btn view-route-btn">View</button></td></tr>
+                                <tr><td>4</td><td>Aye Thida</td><td>Accountant</td><td>09-4567890</td><td>15-04-2024</td><td>Active</td><td>None</td><td><button class="action-btn add-route-btn">Add</button><button class="action-btn view-route-btn">View</button></td></tr>
+                                <tr><td>5</td><td>Zaw Latt</td><td>Sales Rep</td><td>09-5678901</td><td>20-05-2024</td><td>Active</td><td>Top Performer</td><td><button class="action-btn add-route-btn">Add</button><button class="action-btn view-route-btn">View</button></td></tr>
+                                <tr><td>6</td><td>Khaing Mar</td><td>Supervisor</td><td>09-6789012</td><td>25-06-2024</td><td>Active</td><td>New Assignment</td><td><button class="action-btn add-route-btn">Add</button><button class="action-btn view-route-btn">View</button></td></tr>
+                                <tr><td>7</td><td>San Min</td><td>Sales Rep</td><td>09-7890123</td><td>01-07-2024</td><td>Active</td><td>None</td><td><button class="action-btn add-route-btn">Add</button><button class="action-btn view-route-btn">View</button></td></tr>
+                                <tr><td>8</td><td>Wai Yan</td><td>Driver</td><td>09-8901234</td><td>05-08-2024</td><td>Active</td><td>New Driver</td><td><button class="action-btn add-route-btn">Add</button><button class="action-btn view-route-btn">View</button></td></tr>
+                                <tr><td>9</td><td>Nwe Oo</td><td>Accountant</td><td>09-9012345</td><td>10-09-2024</td><td>Inactive</td><td>Resigned</td><td><button class="action-btn add-route-btn">Add</button><button class="action-btn view-route-btn">View</button></td></tr>
+                                <tr><td>10</td><td>Kyaw Zin</td><td>Supervisor</td><td>09-0123456</td><td>15-10-2024</td><td>Active</td><td>None</td><td><button class="action-btn add-route-btn">Add</button><button class="action-btn view-route-btn">View</button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="routeAssignmentModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+
+        <form id="deliveryRouteForm">
+            <div class="form-header">
+                <h2>Delivery Route Assignment Form</h2>
+            </div>
+
+            <div class="form-row header-inputs">
+                <div class="input-group staff-name-group">
+                    <label for="staffName">Staff Name</label>
+                    <input type="text" id="staffName" name="staffName" >
+                </div>
+                <!-- readonly -->
+                <div class="input-group date-group">
+                    <label for="assignmentDate">Date</label>
+                    <input type="date" id="assignmentDate" name="assignmentDate">
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table id="routeTable">
+                    <thead>
+                        <tr class="table-header-row1">
+                            <th class="col-no">No.</th>
+                            <th class="col-shop">Shop</th>
+                            <th class="col-address">Address</th>
+                            <th class="col-item">Item</th>
+                            <th class="col-qty">Qty</th>
+                            <th class="col-unit">Unit</th>
+                            <th class="col-price">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="routeTableBody">
+                        </tbody>
+                </table>
+            </div>
+
+            <div class="assignment-section">
+
+                <div class="input-group shop-input-group">
+                    <label for="shopName">Shop Name</label>
+                    <input class="sInput" list="shops" id="shopName" name="shopName" placeholder="Type or Select Shop">
+                    <datalist id="shops">
+                        <option value="Shop 1">
+                        <option value="Shop 2">
+                        <option value="Shop 3">
+                        <option value=""> </datalist>
+                </div>
+
+                <div id="manualItemInput" class="manual-item-input-row" style="display: none;">
+                    
+                    <div class="input-group item-group">
+                        <label for="itemManual">Item</label>
+                        <select id="itemManual" name="itemManual">
+                            <option value="" disabled selected>Select Item</option>
+                            <option value="Coffee">Coffee</option>
+                            <option value="Noodle">Noodle</option>
+                        </select>
+                    </div>
+                    <div class="input-group qty-group">
+                        <label for="qtyManual">Qty</label>
+                        <input type="number" id="qtyManual" name="qtyManual" min="1" value="1">
+                    </div>
+                    <div class="input-group unit-group">
+                        <label for="unitManual">Unit</label>
+                        <select id="unitManual" name="unitManual">
+                            <option value="ထုပ်">ထုပ်</option>
+                            <option value="တွဲ">တွဲ</option>
+                            <option value="ဖာ">ဖာ</option>
+                            <option value="pcs">pcs</option> </select>
+                    </div>
+                    <div class="input-group price-group">
+                        <label for="priceManual">Price</label>
+                        <input type="number" id="priceManual" name="priceManual" min="0" value="0">
+                    </div>
+                    
+                    <button type="button" id="manualAddItemBtn" class="add-btn add-manual">Add +</button>
+                </div>
+
+
+                <div id="databaseItemSelection" class="db-selection-section" style="display: none;">
+                    
+                    <div class="checkbox-list-container">
+                        </div>
+                    
+                    <button type="button" id="addSelectedItemsBtn" class="add-btn add-db">Add +</button>
+                </div>
+
+            </div>
+            <div class="input-group remark-group">
+                <label for="remark">Remark</label>
+                <textarea id="remark" name="remark" rows="1"></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="resetBtn" class="btn reset-btn">RESET</button>
+                <button type="submit" id="submitBtn" class="btn submit-btn">SUBMIT</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="routeViewModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn view-close-btn">&times;</span>
+
+        <form id="deliveryRouteViewForm">
+            <div class="form-header">
+                <h2>Delivery Route Form</h2>
+            </div>
+
+            <div class="form-row header-inputs">
+                <div class="input-group staff-name-group">
+                    <label for="staffNameView">Staff Name</label>
+                    <input type="text" id="staffNameView" name="staffNameView" readonly>
+                </div>
+                <div class="input-group date-group">
+                    <label for="assignmentDateView">Date</label>
+                    <input type="date" id="assignmentDateView" name="assignmentDateView">
+                </div>
+            </div>
+
+            <div class="table-outer-container">
+                <div class="table-inner-container">
+                    <table id="routeViewTable">
+                        <thead>
+                            <tr class="table-header-row">
+                                <th class="col-no">No.</th>
+                                <th class="col-shop">Shop</th>
+                                <th class="col-address">Address</th>
+                                <th class="col-item">Item</th>
+                                <th class="col-qty">Qty</th>
+                                <th class="col-unit">Unit</th>
+                                <th class="col-price">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody id="routeViewTableBody">
+                           <tr><td>1</td><td>Hla Aung</td><td>No.123,LanMaDaw,Yangon</td><td>Coffee</td><td>20</td><td>package</td><td>Good</td><td>6000</td></tr>
+                           <tr><td>2</td><td>Hla Aung</td><td>No.123,LanMaDaw,Yangon</td><td>Coffee</td><td>20</td><td>package</td><td>Good</td><td>6000</td></tr>
+                           <tr><td>3</td><td>Hla Aung</td><td>No.123,LanMaDaw,Yangon</td><td>Coffee</td><td>20</td><td>package</td><td>Good</td><td>6000</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="form-actions view-actions">
+                <button type="button" id="resetViewBtn" class="btn reset-btn">RESET</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="dashboardScript.js"></script>
+</body>
+</html>
